@@ -1,4 +1,3 @@
-import styled from "astroturf/react";
 import React, { FC, ReactNode } from "react";
 
 interface IProps {
@@ -6,9 +5,5 @@ interface IProps {
 }
 
 export const Content: FC<IProps> = ({ children }) => {
-  return <Container>{children}</Container>;
+  return <main className="flex flex-col mx-24 my-4">{children}</main>;
 };
-
-const Container = styled.main`
-  background: gray;
-`;

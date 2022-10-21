@@ -7,15 +7,14 @@ module.exports = {
       webpackConfig.module.rules.push({
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: "astroturf/loader",
-            options: { extension: ".module.scss", enableCssProp: true },
-          },
-        ],
       });
 
       return webpackConfig;
     }
+  },
+  style: {
+    postcssOptions: {
+      plugins: [require("tailwindcss"), require("autoprefixer")],
+    },
   },
 };
