@@ -1,9 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { IconHome } from "../../assets/icons/iconHome";
-import { IconUsers } from "../../assets/icons/iconUsers";
-import { IconPosts } from "../../assets/icons/iconPosts";
-import { IconAddr } from "../../assets/icons/iconAddr";
 
 interface IProps {}
 
@@ -12,20 +8,28 @@ export const Header = (props: IProps) => {
     <header className="font-bold flex items-center justify-between p-4">
       <nav className="flex gap-x-12">
         <Link to={"/"} className="flex gap-x-2">
-          <IconHome />
+          <svg height="24" width="24">
+            <use xlinkHref="./sprite.svg#home" />
+          </svg>
           Главная
         </Link>
 
         <Link to={"/users"} className="flex gap-x-2">
-          <IconUsers />
+          <svg height="24" width="24">
+            <use xlinkHref="./sprite.svg#users" />
+          </svg>
           Пользователи
         </Link>
         <Link to={"/posts"} className="flex gap-x-2">
-          <IconPosts />
+          <svg height="24" width="24">
+            <use xlinkHref="./sprite.svg#posts" />
+          </svg>
           Посты
         </Link>
         <Link to={"/adr"} className="flex gap-x-2">
-          <IconAddr />
+          <svg height="24" width="24">
+            <use xlinkHref="./sprite.svg#addresses" />
+          </svg>
           Адреса
         </Link>
       </nav>

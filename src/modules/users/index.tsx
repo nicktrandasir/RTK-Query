@@ -9,13 +9,12 @@ interface IProps {}
 export const Users = (props: IProps) => {
   const dispatch = useAppDispatch();
   const { data, isLoading } = useGetListUsersQuery(1);
-  //TODO: посмотреть спрайты tailwind'a
   return isLoading ? (
-    <div className="bg-black w-3">Loading ...</div>
+    <div className="flex items-center justify-center w-full bg-black w-3 text-white">Loading ...</div>
   ) : (
     <Layout>
       {data?.map((user) => (
-        <div key={user.name} className="flex gap-8 p-2">
+        <div key={user.id} className="flex justify-between p-2">
           <p>{user.id}</p>
           <p>{user.name} </p>
           <p>{user.email}</p>
@@ -25,7 +24,9 @@ export const Users = (props: IProps) => {
         </div>
       ))}
 
-      <button onClick={() => dispatch(rtkApi.util.resetApiState())}>Clear users</button>
+      <button className="bg-green-700 text-white p-2" onClick={() => dispatch(rtkApi.util.resetApiState())}>
+        Clear users
+      </button>
     </Layout>
   );
 };
