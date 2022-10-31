@@ -10,7 +10,7 @@ export const Users = (props: IProps) => {
   const dispatch = useAppDispatch();
   const { data, isLoading } = useGetListUsersQuery(1);
   return isLoading ? (
-    <div className="flex items-center justify-center w-full bg-black w-3 text-white">Loading ...</div>
+    <div className="flex items-center justify-center w-96 h-full bg-black w-3 text-white">Loading ...</div>
   ) : (
     <Layout>
       {data?.map((user) => (
@@ -24,7 +24,10 @@ export const Users = (props: IProps) => {
         </div>
       ))}
 
-      <button className="bg-green-700 text-white p-2" onClick={() => dispatch(rtkApi.util.resetApiState())}>
+      <button
+        className="bg-green-700 text-white p-2 hover:bg-green-600"
+        onClick={() => dispatch(rtkApi.util.resetApiState())}
+      >
         Clear users
       </button>
     </Layout>
